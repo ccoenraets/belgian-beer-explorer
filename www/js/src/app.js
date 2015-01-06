@@ -92,7 +92,7 @@ var ProductListItem = React.createClass({
                 return <a href="#" className="tag" onClick={this.linkHandler} key={this.props.product.id + '-' + tag}>{tag}</a>;
             }.bind(this));
         }
-        var divStyle = {"background-image": "url('pics/" + this.props.product.image + "')"};
+        var divStyle = {"backgroundImage": "url('pics/" + this.props.product.image + "')"};
         return (
             <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 nopadding" key={this.props.product.id}>
                 <div className="panel panel-default">
