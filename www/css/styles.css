@@ -4,6 +4,7 @@ body {
 
 .noUi-connect {
     background: #A61103 !important;
+    /*background: #F25C05 !important;*/
 }
 
 .tooltip {
@@ -13,6 +14,7 @@ body {
     opacity: .9;
     color: #fff;
     background: #A61103;
+    /*background: #F25C05;*/
     padding: 2px 4px;
     margin-top: -22px;
     width:40px;
@@ -45,12 +47,13 @@ a:active {
 }
 
 .center-block.trim {
-    max-width: 540px;
+    max-width: 480px;
+    /*max-width: 540px;*/
 }
 
 .slider-wrapper {
-    margin-top: 12px;
-    margin-bottom: 64px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: #969696;;
 }
 

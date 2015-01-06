@@ -33,7 +33,7 @@ function findAll(req, res, next) {
 
     var countSql = "SELECT COUNT(*) from beer INNER JOIN brewery on beer.brewery_id = brewery.id " + where;
 
-    var sql = "SELECT beer.id, beer.name, alcohol, tags, image, beer.brewery as brewery " +
+    var sql = "SELECT beer.id, beer.name, alcohol, tags, image, brewery.name as brewery " +
                 "FROM beer INNER JOIN brewery on beer.brewery_id = brewery.id " + where +
                 " ORDER BY beer.name LIMIT $" + (values.length + 1) + " OFFSET $" +  + (values.length + 2);
 

@@ -46,13 +46,13 @@ var RangeSlider = React.createClass({
                 'max': this.props.max
             }
         });
-        $el.noUiSlider_pips({
-            mode: 'steps',
-            filter: function(value) {
-                return value == Math.floor(value);
-            },
-            density: 2
-        });
+        //$el.noUiSlider_pips({
+        //    mode: 'steps',
+        //    filter: function(value) {
+        //        return value == Math.floor(value);
+        //    },
+        //    density: 2
+        //});
         $el.Link('lower').to('-inline-<div class="tooltip"></div>', function ( value ) {
             $(this).html(
                 '<span>' + value.substr(0, value.length - 1) + '</span>'
