@@ -6,15 +6,13 @@ function escape(s) {
 
 function findAll(req, res, next) {
 
-    var pageSize = 12,
+    var pageSize = req.query.pageSize ?  parseInt(req.query.pageSize) : 12,
         page = req.query.page ? parseInt(req.query.page) : 1,
         search = req.query.search,
         min = req.query.min,
         max = req.query.max,
         whereParts = [],
         values = [];
-
-    console.log(page);
 
     if (search) {
         values.push(escape(search));
@@ -53,13 +51,13 @@ function findAll(req, res, next) {
 function findById(req, res, next) {
     var id = req.params.id;
 
-    var sql = "SELECT beer.id, beer.name, alcohol, tags, brewery.name as brewery FROM beer " +
-                "INNER JOIN brewery on beer.brewery_id = brewery.id " +
-                "WHERE beer.id = $1";
+    var sql = "SELECT beer.id, beer.name, alcohol, tags, image, brewery.name as brewery FROM beer " +
+        "INNER JOIN brewery on beer.brewery_id = brewery.id " +
+        "WHERE beer.id = $1";
 
     db.query(sql, [id])
         .then(function (product) {
-            return res.send(JSON.stringify(product));
+            return res.json(product[0]);
         })
         .catch(next);
 };
