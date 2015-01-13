@@ -6,7 +6,7 @@ function escape(s) {
 
 function findAll(req, res, next) {
 
-    var pageSize = req.query.pageSize ?  parseInt(req.query.pageSize) : 12,
+    var pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12,
         page = req.query.page ? parseInt(req.query.page) : 1,
         search = req.query.search,
         min = req.query.min,
