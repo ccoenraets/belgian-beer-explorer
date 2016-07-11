@@ -4,7 +4,7 @@ Sample App demonstrating how to build applications with React, Node.js, and the 
 
 The back-end is built with **Node.js** using a **Postgres** database.
 
-See it live here: [http://belgianbeerexplorer.com](http://belgianbeerexplorer.com).
+See it live here: [http://www.belgianbeerexplorer.com](http://www.belgianbeerexplorer.com).
 
 
 ## Automatic Deployment to Heroku
