@@ -1,5 +1,6 @@
-var express = require('express'),
-    //path = require('path'),
+"use strict";
+
+let express = require('express'),
     compression = require('compression'),
     products = require('./server/products'),
     app = express();

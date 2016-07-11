@@ -1,12 +1,12 @@
-var db = require('./pghelper');
+"use strict";
 
-function escape(s) {
-    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-}
+let db = require('./pghelper');
 
-function findAll(req, res, next) {
+let escape = s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 
-    var pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12,
+let findAll = (req, res, next) => {
+
+    let pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : 12,
         page = req.query.page ? parseInt(req.query.page) : 1,
         search = req.query.search,
         min = req.query.min,
@@ -27,20 +27,19 @@ function findAll(req, res, next) {
         whereParts.push("beer.alcohol <= $" + values.length);
     }
 
-    var where = whereParts.length > 0 ? ("WHERE " + whereParts.join(" AND ")) : "";
+    let where = whereParts.length > 0 ? ("WHERE " + whereParts.join(" AND ")) : "";
 
-    var countSql = "SELECT COUNT(*) from beer INNER JOIN brewery on beer.brewery_id = brewery.id " + where;
+    let countSql = "SELECT COUNT(*) from beer INNER JOIN brewery on beer.brewery_id = brewery.id " + where;
 
-    var sql = "SELECT beer.id, beer.name, alcohol, tags, image, brewery.name as brewery " +
+    let sql = "SELECT beer.id, beer.name, alcohol, tags, image, brewery.name as brewery " +
                 "FROM beer INNER JOIN brewery on beer.brewery_id = brewery.id " + where +
                 " ORDER BY beer.name LIMIT $" + (values.length + 1) + " OFFSET $" +  + (values.length + 2);
 
-    // TODO: Use q to run the two queries in parallel
     db.query(countSql, values)
-        .then(function (result) {
-            var total = parseInt(result[0].count);
+        .then(result => {
+            let total = parseInt(result[0].count);
             db.query(sql, values.concat([pageSize, ((page - 1) * pageSize)]))
-                .then(function(products) {
+                .then(products => {
                     return res.json({"pageSize": pageSize, "page": page, "total": total, "products": products});
                 })
                 .catch(next);
@@ -48,17 +47,15 @@ function findAll(req, res, next) {
         .catch(next);
 };
 
-function findById(req, res, next) {
-    var id = req.params.id;
+let findById = (req, res, next) => {
+    let id = req.params.id;
 
-    var sql = "SELECT beer.id, beer.name, alcohol, tags, image, brewery.name as brewery FROM beer " +
+    let sql = "SELECT beer.id, beer.name, alcohol, tags, image, brewery.name as brewery FROM beer " +
         "INNER JOIN brewery on beer.brewery_id = brewery.id " +
         "WHERE beer.id = $1";
 
     db.query(sql, [id])
-        .then(function (product) {
-            return res.json(product[0]);
-        })
+        .then(product => res.json(product[0]))
         .catch(next);
 };
 

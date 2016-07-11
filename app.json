@@ -1,0 +1,6 @@
+{
+  "name": "Belgian Beer Explorer",
+  "description": "Sample app built with React and the Lightning Design System",
+  "repository": "https://github.com/ccoenraets/belgian-beer-explorer",
+  "addons": ["heroku-postgresql:hobby-dev"]
+}

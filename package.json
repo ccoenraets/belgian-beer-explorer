@@ -1,26 +1,35 @@
 {
-  "name": "Belgopedia",
+  "name": "belgian-beer-explorer",
   "version": "0.0.0",
-  "description": "Belgopedia",
+  "description": "belgian-beer-explorer",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ccoenraets/belgopedia"
+    "url": "https://github.com/ccoenraets/belgian-beer-explorer"
   },
   "author": "Christophe Coenraets",
   "bugs": {
-    "url": "https://github.com/ccoenraets/loyalty/issues"
+    "url": "https://github.com/ccoenraets/belgian-beer-explorer/issues"
   },
-  "homepage": "https://github.com/ccoenraets/loyalty",
+  "homepage": "https://github.com/ccoenraets/belgian-beer-explorer",
   "dependencies": {
-    "compression": "^1.2.2",
-    "express": "^4.10.6",
-    "path": "^0.4.9",
-    "pg": "^4.1.1",
-    "q": "^1.1.2"
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "path": "^0.12.7",
+    "pg": "^6.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-slider": "^0.6.1",
+    "webpack": "^1.13.1"
   }
 }
