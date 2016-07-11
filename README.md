@@ -1,8 +1,11 @@
 # Belgian Beer Explorer
 
-Sample project demonstrating how to build applications with React, Node.js, and the Lightning Design System. React University is written using ECMAScript 6 on the client and on the server (leveraging the new ES6 support of Node.js 4+).
+Sample App demonstrating how to build applications with React, Node.js, and the Lightning Design System. Written with ECMAScript 6 on the client and on the server (leveraging the new ES6 support of Node.js 4+).
 
-The back-end is built with **Node.js** using a **Postgres** database. 
+The back-end is built with **Node.js** using a **Postgres** database.
+
+See it live here: [http://belgianbeerexplorer.com](http://belgianbeerexplorer.com).
+
 
 ## Automatic Deployment to Heroku
 
@@ -21,7 +24,7 @@ Your own instance of the application is automatically deployed, and your own Pos
 1. On the command prompt, type the following command to populate your database: 
  
     ```
-    heroku pg:psql --app YOUR_APP_NAME < beers.sql
+    heroku pg:psql --app YOUR_HEROKU_APP_NAME < beers.sql
     ```
 
 ## Local Installation
