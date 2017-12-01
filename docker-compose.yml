@@ -1,0 +1,28 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    build:
+      context: .
+      dockerfile: db.Dockerfile
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: belgianbeers
+
+  app:
+    build:
+      context: .
+      dockerfile: web.Dockerfile
+    restart: always
+    links:
+        - db:db    
+    environment:
+      DATABASE_URL: postgres://postgres:example@db/belgianbeers
+    ports:
+      - 5000:5000
+    depends_on:
+      - "db"
+    command: ["./wait-for.sh", "db:5432", "--", "npm", "start"]      
