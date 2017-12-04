@@ -27,6 +27,27 @@ Your own instance of the application is automatically deployed, and your own Pos
     heroku pg:psql --app YOUR_HEROKU_APP_NAME < beers.sql
     ```
 
+## Local Installation with Docker
+
+Prerequisites
+- docker, docker-compose
+
+Run the following if you prefer to install the application using docker on your local machine:
+
+1. On your terminal
+```
+cd belgian-beer-explorer
+docker-compose up
+```
+This should pull down docker images for nodejs and postgres from the registry, build and start the machines
+
+2. Open a browser and access [http://localhost:5000](http://localhost:5000)
+
+3. To stop the services
+```
+docker-compose down
+```
+
 ## Local Installation
 
 Follow the instructions below if you prefer to install the application on your local machine:
