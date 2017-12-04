@@ -15,7 +15,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: web.Dockerfile
+      dockerfile: app.Dockerfile
     restart: always
     links:
         - db:db    
